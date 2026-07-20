@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Cores - tons de azul / azul agua / azul neon, branco e cinza escuro */
+  --color-base: 222 47% 6%;
+  --color-surface: 222 40% 9%;
+  --color-surface-raised: 222 34% 13%;
+  --color-ink: 210 40% 98%;
+  --color-ink-muted: 215 20% 65%;
+  --color-border: 216 30% 20%;
+
+  --color-primary: 199 89% 52%;      /* azul agua / neon */
+  --color-primary-ink: 222 47% 6%;
+  --color-accent: 172 80% 48%;       /* azul-esverdeado neon de apoio */
+  --color-accent-ink: 222 47% 6%;
+
+  --color-success: 152 60% 45%;
+  --color-warning: 40 90% 55%;
+  --color-danger: 4 78% 58%;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+* {
+  border-color: hsl(var(--color-border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: hsl(var(--color-base));
+  color: hsl(var(--color-ink));
+  font-family: var(--font-body);
+}
+
+.font-mono-data {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: hsl(var(--color-primary));
+  color: hsl(var(--color-primary-ink));
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid hsl(var(--color-primary));
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, hsl(var(--color-primary)), hsl(var(--color-accent)));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid-scan-bg {
+  background-image:
+    linear-gradient(hsl(var(--color-border) / 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--color-border) / 0.5) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, black 40%, transparent 90%);
+}
